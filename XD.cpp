@@ -1,6 +1,6 @@
 #include <iostream>
 using namespace std;
-peneGAAAAAAAAAAAAAAAA
+//peneGAAAAAAAAAAAAAAAA
 //me meto mi JA JA JA CON EL MONTEEE
 // Definición de la clase base Vehiculo
 class Vehiculo {
