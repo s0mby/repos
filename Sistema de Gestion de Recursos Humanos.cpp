@@ -3,37 +3,34 @@
 // Clase base Empleado
 class Empleado {
 protected:
+    string nombre;
     double salarioBase;
+    int fechaContratacion;
 public:
     // Constructor
     Empleado(double salario) : salarioBase(salario) {}
     // Método virtual para calcular el salario
-    virtual double calcularSalario() const = 0;
+    virtual double calcularSalario();
 };
-// Clase derivada EmpleadoTiempoCompleto
-class EmpleadoTiempoCompleto : public Empleado {
+// Clase derivada Gerente
+class Gerente : public Empleado {
 public:
     // Constructor
-    EmpleadoTiempoCompleto(double salario) : Empleado(salario) {}
-    // Redefinición del método calcularSalario para empleados a tiempo completo
+    Gerente(double salario) : Empleado(salario) {}
     double calcularSalario() const override {
         return salarioBase;
     }
 };
-// Clase derivada EmpleadoMedioTiempo
-class EmpleadoMedioTiempo : public Empleado {
+// Clase derivada Desarrollador
+class Desarrollador : public Empleado {
 public:
     // Constructor
-    EmpleadoMedioTiempo(double salario) : Empleado(salario) {}
-    // Redefinición del método calcularSalario para empleados a medio tiempo
+    Desarrollador(double salario) : Empleado(salario) {}
     double calcularSalario() const override {
         return salarioBase / 2.0;
     }
 };
 int main() {
-    EmpleadoTiempoCompleto empleadoTC(3000.0);
-    EmpleadoMedioTiempo empleadoMT(1500.0);
-    std::cout << "Salario de Empleado a Tiempo Completo: $" << empleadoTC.calcularSalario() << std::endl;
-    std::cout << "Salario de Empleado a Medio Tiempo: $" << empleadoMT.calcularSalario() << std::endl;
+    
     return 0;
 }
