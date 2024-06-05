@@ -3,7 +3,7 @@
 // Clase base Empleado
 class Empleado {
 protected:
-    double salarioBase;
+    double salarioBase; xssss
 public:
     // Constructor
     Empleado(double salario) : salarioBase(salario) {}
