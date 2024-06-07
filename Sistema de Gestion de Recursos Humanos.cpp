@@ -38,25 +38,37 @@ class Empleado {
 private:
   string nombre;
   float salario;
-  fecha fechaContratacion;
+  int fechaContratacion;
 
 public:
-  Empleado(string nombre, float salario, fecha fechaContratacion) {
+  Empleado(string nombre, float salario, int fechaContratacion) {
     this->nombre = nombre;
     this->salario = salario;
     this->fechaContratacion = fechaContratacion;
   }
 
-  virtual float calcularSalario() = 0; // Método virtual puro
+  virtual float calcularSalario(); // Método virtual
 
-  string getNombre() const { return nombre; }
-  void setNombre(const string& nombre) { this->nombre = nombre; }
+  string getNombre() const { 
+      return nombre; 
+  }
+  void setNombre(const string& nombre) { 
+      this->nombre = nombre; 
+  }
 
-  float getSalario() const { return salario; }
-  void setSalario(float salario) { this->salario = salario; }
+  float getSalario() const { 
+      return salario; 
+  }
+  void setSalario(float salario) { 
+      this->salario = salario; 
+  }
 
-  fecha getFechaContratacion() const { return fechaContratacion; }
-  void setFechaContratacion(const fecha& fechaContratacion) { this->fechaContratacion = fechaContratacion; }
+  fecha getFechaContratacion() const { 
+      return fechaContratacion; 
+  }
+  void setFechaContratacion(const fecha& fechaContratacion) { 
+      this->fechaContratacion = fechaContratacion; 
+  }
 };
 
 class Gerente : public Empleado {
@@ -68,7 +80,7 @@ public:
     this->bono = bono;
   }
 
-  float calcularSalario() { // Método virtual, no puro
+  float calcularSalario() { // Método virtual
     return salario + bono;
   }
 };
@@ -84,7 +96,7 @@ public:
     this->pagoHoraExtra = pagoHoraExtra;
   }
 
-  float calcularSalario() { // Método virtual, no puro
+  float calcularSalario() { // Método virtual
     return salario + (horasExtra * pagoHoraExtra);
   }
 };
@@ -98,39 +110,30 @@ public:
     this->comisionProyectos = comisionProyectos;
   }
 
-  float calcularSalario() { // Método virtual, no puro
+  float calcularSalario() { // Método virtual
     return salario + comisionProyectos;
   }
 };
 
 int main() {
   // Creando empleados de diferentes tipos
-  Empleado juanPerez("Juan Perez", 2500, {2022, 3, 1});
-  Gerente mariaGarcia("Maria Garcia", 2800, {2021, 7, 15}, 400);
-  Desarrollador pedroLopez("Pedro Lopez", 2000, {2023, 5, 10}, 10, 35);
-  Diseñador anaRomero("Ana Romero", 1800, {2024, 2, 15}, 200);
+  Empleado PedroPaz("Pedro Paz", 2500, {2022, 3, 1});
+  Gerente LiamSol("Liam Sol", 2800, {2021, 7, 15}, 400);
+  Desarrollador MariaVelez("Maria Velez", 2000, {2023, 5, 10}, 10, 35);
+  Diseñador SimeoVill("Simeo Vill", 1800, {2024, 2, 15}, 200);
 
   // Demostrando el polimorfismo para calcular salarios
-  cout << "Nombre: " << juanPerez.getNombre() << endl;
-  cout << "Salario: " << juanPerez.calcularSalario() << endl;
-  cout << endl;
+  cout << "Nombre: " << PedroPaz.getNombre() << endl;
+  cout << "Salario: " << PedroPaz.calcularSalario() << endl;
 
-  cout << "Nombre: " << mariaGarcia.getNombre() << endl;
-  cout << "Salario: " << mariaGarcia.calcularSalario() << endl;
-  cout << endl;
+  cout << "Nombre: " << LiamSol.getNombre() << endl;
+  cout << "Salario: " << LiamSol.calcularSalario() << endl;
 
-  cout << "Nombre: " << pedroLopez.getNombre() << endl;
-  cout << "Salario: " << pedroLopez.calcularSalario() << endl;
-  cout << endl;
+  cout << "Nombre: " << MariaVelez.getNombre() << endl;
+  cout << "Salario: " << MariaVelez.calcularSalario() << endl;
 
-  cout << "Nombre: " << anaRomero.getNombre() << endl;
-  cout << "Salario: " << anaRomero.calcularSalario() << endl;
-  cout << endl;
+  cout << "Nombre: " << SimeoVill.getNombre() << endl;
+  cout << "Salario: " << SimeoVill.calcularSalario() << endl;
 
   return 0;
-}
-};
-int main() {
-    
-    return 0;
 }
