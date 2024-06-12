@@ -157,7 +157,7 @@ public:
         this->fechaContratacionMes = mes;
         this->fechaContratacionDia = dia;
     }
-    virtual float calcularSalario() = 0; // Método virtual puro
+    virtual float calcularSalario(); // Método virtual
     string getNombre() const {
         return nombre;
     }
