@@ -392,3 +392,18 @@ vector<T*>puntero;
 public:
 void agregar 
 }
+
+
+int main(){
+    Gerente obj();
+    Desarrollador obj2();
+    Diseñador obj3();
+    Arreglo <Empleado> arreglo;
+
+    arreglo.agregar(new Gerente(obj));
+    arreglo.agregar(new Desarrollador(obj2));
+    arreglo.agregar(new Diseñador(obj3));
+
+    arreglo.mostrarTodos();
+    return 0;
+}
