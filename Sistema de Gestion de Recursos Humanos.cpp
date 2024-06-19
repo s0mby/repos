@@ -295,3 +295,100 @@ int main() {
    
     return 0;
 }
+
+---------------------------------------------------------
+#include <iostream>
+#include <string>
+#include <vector>
+using namespace std;
+
+class Empleado {
+private:
+    string nombre;
+    float salario;
+    int fechaContratacionAnio;
+    int fechaContratacionMes;
+    int fechaContratacionDia;
+public:
+    Empleado(string nombre, float salario, int anio, int mes, int dia) {
+        this->nombre = nombre;
+        this->salario = salario;
+        this->fechaContratacionAnio = anio;
+        this->fechaContratacionMes = mes;
+        this->fechaContratacionDia = dia;
+    }
+    virtual float calcularSalario() ; // Método virtual puro
+    string getNombre() const {
+        return nombre;
+    }
+    void setNombre(const string& nombre) {
+        this->nombre = nombre;
+    }
+    float getSalario() const {
+        return salario;
+    }
+    void setSalario(float salario) {
+        this->salario = salario;
+    }
+    int getFechaContratacionAnio() const {
+        return fechaContratacionAnio;
+    }
+    int getFechaContratacionMes() const {
+        return fechaContratacionMes;
+    }
+    int getFechaContratacionDia() const {
+        return fechaContratacionDia;
+    }
+    void setFechaContratacion(int anio, int mes, int dia) {
+        this->fechaContratacionAnio = anio;
+        this->fechaContratacionMes = mes;
+        this->fechaContratacionDia = dia;
+    }
+};
+
+class Gerente : public Empleado {
+private:
+    float bono;
+public:
+    Gerente(string nombre, float salario, int anio, int mes, int dia, float bono)
+    : Empleado(nombre, salario, anio, mes, dia) {
+        this->bono = bono;
+    }
+    float calcularSalario() override {
+        return getSalario() + bono;
+    }
+};
+class Desarrollador : public Empleado {
+private:
+    int horasExtra;
+    float pagoHoraExtra;
+public:
+    Desarrollador(string nombre, float salario, int anio, int mes, int dia, int horasExtra, float pagoHoraExtra)
+    : Empleado(nombre, salario, anio, mes, dia) {
+        this->horasExtra = horasExtra;
+        this->pagoHoraExtra = pagoHoraExtra;
+    }
+    float calcularSalario() override {
+        return getSalario() + (horasExtra * pagoHoraExtra);
+    }
+};
+
+class Diseñador : public Empleado {
+private:
+    float comisionProyectos;
+public:
+    Diseñador(string nombre, float salario, int anio, int mes, int dia, float comisionProyectos)
+    : Empleado(nombre, salario, anio, mes, dia) {
+        this->comisionProyectos = comisionProyectos;
+    }
+    float calcularSalario() override {
+        return getSalario() + comisionProyectos;
+    }
+};
+template <typename T>
+class arreglo{
+private:
+vector<T*>puntero;
+public:
+void agregar 
+}
