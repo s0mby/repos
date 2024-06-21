@@ -390,9 +390,21 @@ class arreglo{
 private:
 vector<T*>puntero;
 public:
-void agregar 
+void agregar (T* ptr){
+    puntero.push_back(ptr);
+}
+void mostrar()const{
+    for (const auto& ptr : puntero){
+        ptr -> mostrar();
+    }
 }
 
+~Arreglo(){
+    for (auto ptr : puntero){
+        delete ptr;
+        }
+    }
+};
 
 int main(){
     Gerente obj();
